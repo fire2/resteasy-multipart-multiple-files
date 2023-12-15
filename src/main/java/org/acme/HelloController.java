@@ -1,6 +1,5 @@
 package org.acme;
 
-import static jakarta.ws.rs.core.MediaType.APPLICATION_OCTET_STREAM;
 import static jakarta.ws.rs.core.MediaType.MULTIPART_FORM_DATA;
 import static jakarta.ws.rs.core.MediaType.TEXT_PLAIN;
 
@@ -12,9 +11,6 @@ import jakarta.ws.rs.Produces;
 import java.io.File;
 import java.util.List;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
-import org.jboss.resteasy.reactive.PartType;
-import org.jboss.resteasy.reactive.RestForm;
-import org.jboss.resteasy.reactive.multipart.FileUpload;
 
 @Path("/hello")
 public class HelloController {
@@ -33,21 +29,6 @@ public class HelloController {
             .append(file.size())
             .append("; ")
         );
-
-        return sb.toString();
-    }
-
-    @POST
-    @Path("/single")
-    @Consumes(MULTIPART_FORM_DATA)
-    @Produces(TEXT_PLAIN)
-    public String receiveSingle(@RestForm("resources") @PartType(APPLICATION_OCTET_STREAM) FileUpload file) {
-
-        StringBuilder sb = new StringBuilder();
-        sb.append(file.fileName())
-            .append(": ")
-            .append(file.size())
-            .append("; ");
 
         return sb.toString();
     }

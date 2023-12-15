@@ -23,7 +23,7 @@ public interface RestApiClient {
     String sendMultipleFiles(MultipleFilesClientRequest form);
 
     @POST
-    @Path("/single")
+    @Path("/")
     @Consumes(MULTIPART_FORM_DATA)
     @Produces(TEXT_PLAIN)
     String sendSingleFile(@RestForm("resources") @PartType(APPLICATION_OCTET_STREAM) File file);
