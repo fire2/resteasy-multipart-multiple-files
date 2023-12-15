@@ -28,7 +28,7 @@ img1.jpg: 38149; img2.jpg: 58320;
 ```shell
 curl -X 'GET' \
   'http://localhost:8080/hello' \       
-  -H 'accept: */*' \
+  -H 'accept: */*'
 ```
 Output (empty) because files are not written to the request: 
 ```shell
@@ -40,7 +40,7 @@ Output (empty) because files are not written to the request:
 ```shell
 curl -X 'GET' \
   'http://localhost:8080/hello/single' \
-  -H 'accept: */*' \
+  -H 'accept: */*' 
 ```
 Output:
 ```shell
